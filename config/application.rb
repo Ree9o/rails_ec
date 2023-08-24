@@ -28,6 +28,11 @@ module Myapp
                        routing_specs: false
       g.factory_bot false
     end
+    # gコマンドをRuboCop適用済にする
+    config.generators.after_generate do |files|
+      system("bundle exec rubocop --auto-correct-all #{files.join(' ')}", exception: true)
+    end
+
     config.action_view.default_form_builder = 'ApplicationFormBuilder'
   end
 end

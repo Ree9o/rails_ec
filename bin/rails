@@ -1,4 +1,12 @@
 #!/usr/bin/env ruby
-APP_PATH = File.expand_path("../config/application", __dir__)
-require_relative "../config/boot"
-require "rails/commands"
+ APP_PATH = File.expand_path("../config/application", __dir__)
+ require_relative "../config/boot"
+ require "rails/commands"
+
+
+ # aws:
+   # access_key_id: AKIAY5KNSJV6CUSWEL47
+    #secret_access_key: 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
+   # s3:
+  #    region: ap-northeast-1
+ #     bucket: active-storage-bucket-20230822
