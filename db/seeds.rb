@@ -7,14 +7,15 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-6.times do | count |
-count = count + 1
-item = Item.create!(
-  name: 'Pokemon Card',
-  price: 1200 * count,
-  content: "kawaii pokemon card",
-  sale_badge: false,
-)
-item.item_image.attach(io: File.open("app/assets/images/Capture-#{count}.png"),
-filename: "Capture-#{count}.png")
+Item.destroy_all
+6.times do |count|
+  count += 1
+  item = Item.create!(
+    name: 'Pokemon Card',
+    price: 1200 * count,
+    content: 'kawaii pokemon card',
+    sale_badge: false
+  )
+  item.item_image.attach(io: File.open("app/assets/images/Capture-#{count}.png"),
+                         filename: "Capture-#{count}.png")
 end
