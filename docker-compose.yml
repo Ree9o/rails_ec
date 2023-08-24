@@ -2,6 +2,7 @@ version: '3'
 services:
   db:
     image: postgres:14-alpine
+    platform: linux/x86_64
     volumes:
       - db:/var/lib/postgresql/data
     environment:
