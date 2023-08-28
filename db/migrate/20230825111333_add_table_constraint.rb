@@ -2,16 +2,20 @@
 
 class AddTableConstraint < ActiveRecord::Migration[7.0]
   def up
-    change_column :items, :name, :string, null: false
-    change_column :items, :price, :integer, null: false
-    change_column :items, :content, :text, null: false
-    change_column :items, :sale_badge, :boolean, default: false
+    change_table :items, bulk: true do |t|
+      t.change :name, :string, null: false
+      t.change :price, :integer, null: false
+      t.change :content, :text, null: false
+      t.change :sale_badge, :boolean, default: false
+    end
   end
 
   def down
-    change_column :items, :name, :string, null: true
-    change_column :items, :price, :integer, null: true
-    change_column :items, :content, :text, null: true
-    change_column :items, :sale_badge, :boolean, default: nil
+    change_table :items, bulk: true do |t|
+      t.change :name, :string, null: true
+      t.change :price, :integer, null: true
+      t.change :content, :text, null: true
+      t.change :sale_badge, :boolean, default: nil
+    end
   end
 end
