@@ -19,23 +19,22 @@
                             <div class="card h-100">
                              <!-- Sale badge-->
                             <% if item.sale_badge%>
-                            <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
+                                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                             <%end%>
                             <!-- Product image-->
                             <% if item.item_image.attached?%>
                                 <%= image_tag item.item_image.variant(:thumb),class:"card-img-top"%>
                                 <%else%>
-                                  <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
+                                <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
                             <%end%>
                             <!-- Product details-->
-
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <h5 class="fw-bolder">
-                                            <%= item.name%>
-                                        </h5>
+                            <div class="card-body p-4">
+                                <div class="text-center">
+                                    <h5 class="fw-bolder">
+                                        <%= item.name%>
+                                    </h5>
                                     <!-- Product price-->
-                                    <%= item.price%>円
+                                <%= item.price%>円
                                 </div>
                             </div>
                             <!-- Product actions-->
@@ -44,11 +43,11 @@
                                     <%= link_to '商品詳細', admin_user_path(item) ,class: "btn btn-outline-dark mt-auto"%>
                                     <%= link_to '編集', edit_admin_user_path(item),class: "btn btn-outline-dark mt-auto" %>
                                     <%= link_to '削除',"/items/#{item.id}",  data:{turbo_method:"delete",turbo_confirm: "削除してもよろしいですか？"} , class: "btn btn-outline-dark mt-auto"%>
-                                    </div>
+                                </div>
                             </div>
-                         </div>
                         </div>
-                     <%end%>
+                    </div>
+                    <%end%>
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
