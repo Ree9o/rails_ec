@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
-  before_action :set_params, only: %i[show]
+  before_action :set_params, only: %i[show update destroy]
 
   def index
     @items = Item.all
@@ -10,6 +10,34 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_latest = Item.recent.first
+  end
+
+  def new
+    @item = Item.new
+  end
+
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to admin_users_path, notice: "アイテム#{@item.name}を登録しました。"
+    else
+      render 'admin/users/new', status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @item.update(item_params)
+      redirect_to admin_users_path, notice: "アイテム#{@item.name}を更新しました。"
+    else
+      render 'admin/users/edit', status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @item.destroy
+    respond_to do |format|
+      format.html { redirect_to admin_users_path, notice: "アイテム#{@item.name}を削除しました。", status: :see_other }
+    end
   end
 
   private

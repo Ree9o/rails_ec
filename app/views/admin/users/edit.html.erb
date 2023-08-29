@@ -1,0 +1,60 @@
+
+    <body>
+        <!-- Navigation-->
+      <%= render 'navigation' %>
+
+        <!-- Product section-->
+        <section class="py-5">
+
+            <%= form_with model:@item,local: true do |f|%>
+            <div class="container px-4 px-lg-5 my-5">
+
+                <div class="row gx-4 gx-lg-5 align-items-center">
+                        <div class="col-md-6">
+                            <div class="card-img-top mb-5 mb-md-0">
+                             <%= image_tag @item.item_image.variant(:specific)%>
+                            </div>
+                              商品画像変更: <%=f.file_field :item_image%>
+                        </div>
+
+                        <div class="col-md-6">
+                        <%if @item.errors.any?%>
+                            <ul>
+                                <%@item.errors.full_messages.each do |err|%>
+                                     <li><%=err%></li>
+                                <%end%>
+                             </ul>
+                        <%end%>
+                            <div class="small mb-1">
+                                ID:<%=@item.id%>
+                            </div>
+                            <h1 class="display-5 fw-bolder">
+                                <%= f.text_field :name %>
+                            </h1>
+                            <div class="fs-5 mb-5">
+                                <%= f.text_field :price %>円
+                            </div>
+                            <p class="lead">
+                                 <%= f.text_area :content, class: "form-control" ,rows:"7"%>
+                            </p>
+                            <div class="form-check form-switch"></p>
+                                    <%= f.check_box :sale_badge ,class:"form-check-input"%>
+                                    <%= f.label :sale_badge, "SALE: OFF/ON" ,class:"form-check-label" %>
+                            </div>
+                            <%= f.submit "更新する" %>
+                        </div>
+                </div>
+            </div>
+            <%end%>
+        </section>
+        <!-- Related items section-->
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
