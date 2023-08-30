@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Admin
-  class UsersController < ApplicationController
+  class ProductsController < ApplicationController
     before_action :basic_auth
 
     def index
@@ -27,10 +27,6 @@ module Admin
       authenticate_or_request_with_http_basic do |username, password|
         username == ENV['BASIC_AUTH_USER'] && password == ENV['BASIC_AUTH_PASSWORD']
       end
-    end
-
-    def item_params
-      params.require(:item).permit(:name, :price, :item_image, :content, :sale_badge)
     end
   end
 end

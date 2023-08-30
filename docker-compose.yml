@@ -18,7 +18,7 @@ services:
       - "3000:3000"
     environment:
       - BASIC_AUTH_USER=admin
-      - BASIC_AUTH_PASSWORD=admin
+      - BASIC_AUTH_PASSWORD=pw
     depends_on:
       - db
   js:

@@ -19,24 +19,24 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to admin_users_path, notice: "アイテム#{@item.name}を登録しました。"
+      redirect_to admin_products_path, notice: "アイテム#{@item.name}を登録しました。"
     else
-      render 'admin/users/new', status: :unprocessable_entity
+      render 'admin/products/new', status: :unprocessable_entity
     end
   end
 
   def update
     if @item.update(item_params)
-      redirect_to admin_users_path, notice: "アイテム#{@item.name}を更新しました。"
+      redirect_to admin_products_path, notice: "アイテム#{@item.name}を更新しました。"
     else
-      render 'admin/users/edit', status: :unprocessable_entity
+      render 'admin/products/edit', status: :unprocessable_entity
     end
   end
 
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to admin_users_path, notice: "アイテム#{@item.name}を削除しました。", status: :see_other }
+      format.html { redirect_to admin_products_path, notice: "アイテム#{@item.name}を削除しました。", status: :see_other }
     end
   end
 
