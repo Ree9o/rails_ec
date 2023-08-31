@@ -1,0 +1,92 @@
+    <body>
+        <!-- Responsive navbar-->
+    <%= render  "navigation" %>
+
+        <!-- Page Content-->
+        <section class="pt-4">
+
+            <div class="container px-lg-5">
+                <!-- Page Features-->
+            <%= form_with model:Item.new,local: true do |f|%>
+                <div class="row gx-lg-5">
+                    <%if @item.errors.any?%>
+                            <ul>
+                                <%@item.errors.full_messages.each do |err|%>
+                                     <li><%=err%></li>
+                                <%end%>
+                             </ul>
+                        <%end%>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-collection"></i></div>
+                                <h2 class="fs-4 fw-bold"><%= f.label :name, "商品名" %></h2>
+                                <p class="mb-0"> <%= f.text_field :name %></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-cloud-download"></i></div>
+                                <h2 class="fs-4 fw-bold">
+                                    <%= f.label :price, "商品価格" %></h2>
+                                <p class="mb-0"> <%= f.text_field :price %>円</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-card-heading"></i></div>
+                                <h2 class="fs-4 fw-bold">  <%= f.label :content, "商品説明" %></h2>
+                                <p class="mb-0">    <%= f.text_area :content, class: "form-control" ,rows:"7"%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-bootstrap"></i></div>
+                                <h2 class="fs-4 fw-bold"><div>
+                                <%= f.label :sale_badge, "セール" %></h2>
+                                <p class="mb-0">
+                                <div class="form-check form-switch"></p>
+                                    <%= f.check_box :sale_badge ,class:"form-check-input"%>
+                                    <%= f.label :sale_badge, "OFF/ON" ,class:"form-check-label" %></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-code"></i></div>
+                                <h2 class="fs-4 fw-bold">商品画像</h2>
+                                <p class="form-control-sm ">  <%=f.file_field :item_image%></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xxl-4 mb-5">
+                        <div class="card bg-light border-0 h-100">
+                            <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4"><i class="bi bi-patch-check"></i></div>
+                                <h2 class="fs-4 fw-bold">登録する</h2>
+                                <p class="mb-0"><%= f.submit %></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                  <%end%>
+            </div>
+
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+
