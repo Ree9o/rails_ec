@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   root to: 'items#index'
   resources :items
 
-  get "/carts" => "carts#index"
-  post "/add_item" => "carts#add_item"
+  get '/carts' => 'carts#index'
+  post '/add_item' => 'carts#create'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
