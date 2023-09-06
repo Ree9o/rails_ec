@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   end
   root to: 'items#index'
   resources :items
+
+  get "/carts" => "carts#index"
+  post "/add_item" => "carts#add_item"
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
