@@ -21,6 +21,8 @@ services:
       - BASIC_AUTH_PASSWORD=pw
     depends_on:
       - db
+    tty: true
+    stdin_open: true
   js:
     image: rails_template:latest
     command: yarn build --watch

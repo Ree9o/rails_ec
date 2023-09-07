@@ -2,14 +2,17 @@
             <div class="container px-4 px-lg-5">
                 <%= link_to 'HC EC課題', root_path,class: "navbar-brand" %>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span></button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item">
-                            <%= link_to 'ホーム', admin_products_path,class: "nav-link active" %>
-                            <li><%= link_to '商品追加', new_admin_product_path,class:"nav-link active"%></li>
+                               <%= link_to 'Home', root_path,class: "nav-link active" %>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!">About</a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -20,13 +23,13 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                           <%=link_to carts_path ,class: "btn btn-outline-dark" do%>
+                    <div class="d-flex">
+                            <%=link_to carts_path ,class: "btn btn-outline-dark" do%>
                                 <i class="bi-cart-fill me-1"></i>
                                 Cart<%= @current_cart%>
                                 <span class="badge bg-dark text-white ms-1 rounded-pill"><%=@total_number%></span>
                             <%end%>
-                    </form>
+                    </div>
                 </div>
             </div>
         </nav>
