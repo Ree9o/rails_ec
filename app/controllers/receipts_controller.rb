@@ -12,7 +12,7 @@ class ReceiptsController < ApplicationController
   private
 
   def set_receipts
-    @receipts = Receipt.select('checkout_id, ARRAY_AGG(name) as names, ARRAY_AGG(price) as prices, ARRAY_AGG(quantity) as quantities').group('checkout_id')
+    @receipts = Receipt.select('checkout_id, ARRAY_AGG(name) as names, ARRAY_AGG(price) as prices, ARRAY_AGG(quantity) as quantities').group('checkout_id').order('checkout_id')
   end
 
   def basic_auth
