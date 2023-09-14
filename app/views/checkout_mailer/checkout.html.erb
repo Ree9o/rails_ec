@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks, <%= @checkout.email %></h1>
+    <h2>注文内容</h2>
+    <%=@checkout.cart.cart_items%>
+  </body>
+</html>

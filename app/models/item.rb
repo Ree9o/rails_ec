@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Item < ApplicationRecord
+  has_many :cart_item, dependent: :destroy
+
   validates :name, presence: true
   validates :price, presence: true
   validates :price, numericality: true

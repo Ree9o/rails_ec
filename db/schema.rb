@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_03_124723) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_050703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_124723) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "checkouts", force: :cascade do |t|
+    t.string "firstname", null: false
+    t.string "lastname", null: false
+    t.string "username", null: false
+    t.string "email"
+    t.text "address", null: false
+    t.text "address2"
+    t.string "country", null: false
+    t.string "state", null: false
+    t.string "zip", null: false
+    t.string "cardname", null: false
+    t.bigint "cardnumber", null: false
+    t.string "expiration", null: false
+    t.integer "cvv", null: false
+    t.bigint "cart_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_checkouts_on_cart_id"
+    t.index ["email"], name: "index_checkouts_on_email", unique: true
+    t.index ["username"], name: "index_checkouts_on_username", unique: true
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
@@ -65,6 +87,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_124723) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_url"
+  end
+
+  create_table "receipts", force: :cascade do |t|
+    t.bigint "checkout_id", null: false
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.integer "quantity", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checkout_id"], name: "index_receipts_on_checkout_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -79,4 +111,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_03_124723) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "items"
+  add_foreign_key "checkouts", "carts"
+  add_foreign_key "receipts", "checkouts"
 end
