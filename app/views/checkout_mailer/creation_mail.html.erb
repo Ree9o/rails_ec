@@ -4,13 +4,12 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Thanks, <%= @checkout.email %></h1>
+    <h1>ご購入ありがとうございます, <%= @checkout.firstname %> 様</h1>
     <h2>注文内容</h2>
       <ul>
         <%@checkout.cart.cart_items.each do |cart_item|%>
-          <li>品名：<%=cart_item.item.name%></li>
-          <li><%=cart_item.item.price%>円</li>
-          <li><%=cart_item.quantity%>個</li>
+        <hr class="my-4">
+          <li>品名：<%=cart_item.item.name%>  価格：<%=cart_item.item.price%>円  購入数:<%=cart_item.quantity%>個</li>
         <%end%>
       </ul>
     <h3>合計金額：<%=@checkout.cart.total_price%>円</h3>
