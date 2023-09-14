@@ -21,6 +21,5 @@ class CreateCheckouts < ActiveRecord::Migration[7.0]
       t.timestamps
     end
     add_index :checkouts, :username, unique: true
-    add_index :checkouts, :email, unique: true
   end
 end

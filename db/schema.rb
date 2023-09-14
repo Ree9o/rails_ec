@@ -75,7 +75,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_050703) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_checkouts_on_cart_id"
-    t.index ["email"], name: "index_checkouts_on_email", unique: true
     t.index ["username"], name: "index_checkouts_on_username", unique: true
   end
 
