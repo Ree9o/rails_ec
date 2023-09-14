@@ -5,13 +5,15 @@
   </head>
   <body>
     <h1>ご購入ありがとうございます, <%= @checkout.firstname %> 様</h1>
+    <hr class="my-4">
     <h2>注文内容</h2>
       <ul>
         <%@checkout.cart.cart_items.each do |cart_item|%>
-        <hr class="my-4">
+
           <li>品名：<%=cart_item.item.name%>  価格：<%=cart_item.item.price%>円  購入数:<%=cart_item.quantity%>個</li>
         <%end%>
       </ul>
+    <hr class="my-4">
     <h3>合計金額：<%=@checkout.cart.total_price%>円</h3>
   </body>
 </html>

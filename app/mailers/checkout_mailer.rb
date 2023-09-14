@@ -5,6 +5,6 @@ class CheckoutMailer < ApplicationMailer
   def creation_mail(checkout)
     @checkout = checkout
     mail = checkout.email
-    mail(to: mail,subject: "注文完了メール")
+    mail(to: mail, subject: '注文完了メール')
   end
 end
