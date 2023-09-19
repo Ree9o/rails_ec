@@ -2,7 +2,7 @@
 
 class CartsController < ApplicationController
   def index
-    @cart_items =  current_cart.cart_items
+    @cart_items = current_cart.cart_items
     @total_price = current_cart.total_price
     @total_number = current_cart.total_number
   end

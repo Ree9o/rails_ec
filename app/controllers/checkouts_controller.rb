@@ -3,8 +3,7 @@
 class CheckoutsController < ApplicationController
   def create
     @checkout = Checkout.new(set_params)
-    if @checkout.save
-      Receipt.create_receipt(@checkout)
+    if @checkout.save!
       session[:cart_id] = nil
       CheckoutMailer.creation_mail(@checkout).deliver_now
       redirect_to root_path, notice: '購入ありがとうございます'

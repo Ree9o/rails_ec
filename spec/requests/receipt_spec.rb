@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Receipts', type: :request do
+RSpec.describe 'Checkout_products', type: :request do
   describe 'GET /index' do
     pending "add some examples (or delete) #{__FILE__}"
   end
