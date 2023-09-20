@@ -1,0 +1,16 @@
+<h1>購入明細</h1>
+
+<% @checkouts.each  do |checkout| %>
+  <ul>
+    <%= link_to admin_checkout_path(id: checkout.id) do  %>
+      <li>
+        ID:<%=checkout.id%>
+          <%checkout.cart.cart_items.each do | items |%>
+            商品名:<%=items.item.name%> | 商品価格:<%=items.item.price%>円 | <%=items.quantity%>個
+            <% end %>
+
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+<%= link_to 'TOP', root_path,class: "btn btn-outline-dark mt-auto" %>

@@ -2,6 +2,8 @@ require:
   - rubocop-rails
   - rubocop-rspec
   - rubocop-hc
+LineLength:
+  Max: 200
 Style/Documentation:
   Enabled: false
 Metrics/MethodLength:

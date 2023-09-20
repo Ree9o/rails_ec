@@ -1,0 +1,15 @@
+<h1>購入明細</h1>
+<h2>購入ID:<%=@checkout_product.checkout_id%></h2>
+<ul>
+  <li>
+    <%@checkout_product.checkout.cart.cart_items.each do |items|%>
+      <hr class="my-4">
+        商品名:<%=items.item.name%> | 商品価格:<%=items.item.price%>円 | <%=items.quantity%>個
+    <%end%>
+  </li>
+</ul>
+<hr class="my-3">
+<h3>合計金額：<%=@checkout_product.checkout.cart.total_price%>円</h3>
+<%= link_to 'back', admin_checkouts_path ,class: "btn btn-outline-dark mt-auto" %>
+
+
